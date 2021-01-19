@@ -1,13 +1,12 @@
 fetch("väder.json")
 .then(file => file.json())
-.then(data => {
-    console.log(data.veckodagar)
-    data.veckodagar.forEach(element => {
+.then(file => {
+    file.veckodagar.forEach(element => {
 
-        dayName = document.createElement("p");
+        let dayName = document.createElement("p");
         dayName.textContent = element.dag;
 
-        dayTemp = document.createElement("p");
+        let dayTemp = document.createElement("p");
         dayTemp.textContent = element.temperatur;
         dayTemp.classList.add(`${element.temperatur > 0 ? "warm" : "cold"}`);
 

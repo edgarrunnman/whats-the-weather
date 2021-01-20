@@ -30,6 +30,18 @@
           "temperatur":-30,
           "moln":false,
           "nederbörd":false
-       }
+       },
+       {
+         "dag":"lördag",
+         "temperatur":-36,
+         "moln":true,
+         "nederbörd":false
+      },
+      {
+        "dag":"söndag",
+        "temperatur":28,
+        "moln":false,
+        "nederbörd":false
+     }
     ]
  }

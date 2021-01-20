@@ -5,40 +5,203 @@ body {
 }
 
 main {
-    width: 90%;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .day-weather-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 90%;
-    border-style: solid;
-    border-width: 5px;
-    margin: 10px;
+    justify-content: space-between;
+    width: 100px;
+    height: 180px;
+    border-radius: 5px;
+    margin: 5px;
+    animation: boxOut 1s infinite;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
-.sunny {
-    background-color: rgba(255, 255, 0, 0.2);
+
+.box-in {
+    animation: boxIn 0.1s infinite;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
 }
 
-.cloudy {
-    background-color: rgba(128, 128, 128, 0.2);
+.box-out {
+    animation: boxOut 1s infinite;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 0.2s;
+}
+@keyframes boxIn {
+    to {width: 320px;}
 }
 
-.rain {
-    border-color: blue;
-}
-.dry {
-    border-color: chartreuse;
+@keyframes boxOut {
+    to {width: 100px;}
 }
 
-.cold{
-color: blue;
+p.shortName {
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
 }
-.warm{
-color: red;
+
+p.fullName {
+    color: white;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+p.cold {
+    color: white;
+    font-weight: 600;
+    font-size: 20;
+    --scaleStart: 1;
+    --scaleEnd: 3;
+    animation: glow-cold 5s ease-in-out infinite alternate;
+}
+
+p.warm {
+    color: white;
+    font-weight: 600;
+    font-size: 20;
+    --scaleStart: 1;
+    --scaleEnd: 3;
+    animation: glow-warm 5s ease-in-out infinite alternate;
+}
+
+p.hot {
+    color: white;
+    font-weight: 600;
+    font-size: 20;
+    --scaleStart: 1;
+    --scaleEnd: 3;
+    animation: glow-hot 5s ease-in-out infinite alternate;
+}
+
+p.cold::after, p.warm::after, p.hot::after {
+    content: " °C";
+  }
+
+.freezing.cloudy {
+    background-image: url("./img/freezing_cloudy.gif");
+}
+
+.freezing.sunny {
+    background-image: url("./img/freezing_sunny.gif");
+}
+
+.cold.cloudy {
+    background-image: url("./img/cloudy.gif");
+}
+
+.cold.sunny {
+    background-image: url("./img/cold_sunny.gif");
+}
+
+.cold.rain {
+    background-image: url("./img/snowing.gif");
+}
+
+.warm.cloudy {
+    background-image: url("./img/cloudy.gif");
+}
+
+.warm.sunny {
+    background-image: url("./img/sunny.gif");
+}
+
+.warm.rain {
+    background-image: url("./img/raining.gif");
+}
+
+.hot.cloudy {
+    background-image: url("./img/cloudy.gif");
+}
+
+.hot.sunny {
+    background-image: url("./img/hot.gif");
+}
+
+p {
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+
+@keyframes glow-cold {
+    from {
+        text-shadow: 
+        0 0 calc(1px * var(--scaleStart)) #f9f9f9, 
+        0 0 calc(2px * var(--scaleStart)) #b2e0e3, 
+        0 0 calc(3px * var(--scaleStart)) #93d5da, 
+        0 0 calc(4px * var(--scaleStart)) #74cad0, 
+        0 0 calc(5px * var(--scaleStart)) #55bfc7, 
+        0 0 calc(6px * var(--scaleStart)) #29afba, 
+        0 0 35px #29afba;
+    }
+    to {
+        text-shadow: 
+        0 0 calc(1px * var(--scaleEnd)) #e0e9f9, 
+        0 0 calc(2px * var(--scaleEnd)) #bfcfeb, 
+        0 0 calc(3px * var(--scaleEnd)) #94afdd,
+        0 0 calc(4px * var(--scaleEnd)) #7497d2, 
+        0 0 calc(5px * var(--scaleEnd)) #4b79c5, 
+        0 0 calc(6px * var(--scaleEnd)) #2960ba, 
+        0 0 35px #2960ba;
+    }
+}
+
+@keyframes glow-warm {
+    from {
+        text-shadow: 
+        0 0 calc(1px * var(--scaleStart)) #f3ffed, 
+        0 0 calc(2px * var(--scaleStart)) #cfeec1, 
+        0 0 calc(3px * var(--scaleStart)) #a4e69e, 
+        0 0 calc(4px * var(--scaleStart)) #6fdc74, 
+        0 0 calc(5px * var(--scaleStart)) #45d453, 
+        0 0 calc(6px * var(--scaleStart)) #00c81c, 
+        0 0 35px #00c81c;
+    }
+    to {
+        text-shadow: 
+        0 0 calc(1px * var(--scaleEnd)) #f3ffed, 
+        0 0 calc(2px * var(--scaleEnd)) #d2f1b1, 
+        0 0 calc(3px * var(--scaleEnd)) #bce889,
+        0 0 calc(4px * var(--scaleEnd)) #a8df65, 
+        0 0 calc(5px * var(--scaleEnd)) #8dd434, 
+        0 0 calc(6px * var(--scaleEnd)) #70c800, 
+        0 0 35px #70c800;
+    }
+}
+
+@keyframes glow-hot {
+    from {
+        text-shadow: 
+        0 0 calc(1px * var(--scaleStart)) #fff5e7, 
+        0 0 calc(2px * var(--scaleStart)) #ffd6ae, 
+        0 0 calc(3px * var(--scaleStart)) #ffc68f, 
+        0 0 calc(4px * var(--scaleStart)) #ffad5f, 
+        0 0 calc(5px * var(--scaleStart)) #ff9635, 
+        0 0 calc(6px * var(--scaleStart)) #ff7900, 
+        0 0 35px #ff7900;
+    }
+    to {
+        text-shadow: 
+        0 0 calc(1px * var(--scaleEnd)) #fff5e7, 
+        0 0 calc(2px * var(--scaleEnd)) #ffddba, 
+        0 0 calc(3px * var(--scaleEnd)) #ffc58d,
+        0 0 calc(4px * var(--scaleEnd)) #ffb26a, 
+        0 0 calc(5px * var(--scaleEnd)) #ff9a3e, 
+        0 0 calc(6px * var(--scaleEnd)) #ff7900, 
+        0 0 35px #ff7900;
+    }
 }

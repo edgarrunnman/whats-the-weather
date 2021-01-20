@@ -10,6 +10,7 @@ main {
 
 p {
     font-family: Arial, Helvetica, sans-serif;
+    transform: skew(-5deg);
 }
 
 .day-weather-box {
@@ -24,8 +25,8 @@ p {
     animation: boxOut 1s infinite;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+    transform: skew(5deg);
 }
-
 
 .box-in {
     animation: boxIn 0.1s infinite;
@@ -136,6 +137,7 @@ p {
     -webkit-user-select: none;
     -o-user-select: none;
 }
+
 
 @keyframes glow-cold {
     from {

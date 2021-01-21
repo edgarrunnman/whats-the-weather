@@ -10,7 +10,6 @@ main {
 
 p {
     font-family: Arial, Helvetica, sans-serif;
-    transform: skew(-5deg);
 }
 
 .day-weather-box {
@@ -25,7 +24,6 @@ p {
     animation: boxOut 1s infinite;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
-    transform: skew(5deg);
 }
 
 .box-in {
@@ -205,5 +203,10 @@ p {
         0 0 calc(5px * var(--scaleEnd)) #ff9a3e, 
         0 0 calc(6px * var(--scaleEnd)) #ff7900, 
         0 0 35px #ff7900;
+    }
+}
+@media screen and (max-width: 800px){
+    main {
+        flex-wrap: wrap;
     }
 }

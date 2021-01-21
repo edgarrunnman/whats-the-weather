@@ -72,27 +72,14 @@ function addResizeEffect(element) {
 }
 
 function dayShortening(dayName) {
-    switch (dayName) {
-        case "måndag":
-            return "mån";
-            break;
-        case "tisdag":
-            return "tis";
-            break;
-        case "onsdag":
-            return "ons";
-            break;
-        case "torsdag":
-            return "tor";
-            break;
-        case "fredag":
-            return "fre";
-            break;
-        case "lördag":
-            return "lör";
-            break;
-        case "söndag":
-            return "sön";
-            break;
+    let days = {
+        "måndag": "mån",
+        "tisdag": "tis",
+        "onsdag": "ons",
+        "torsdag": "tor",
+        "fredag": "fre",
+        "lördag": "lör",
+        "söndag": "sön",
     }
+    return days[dayName]
 }

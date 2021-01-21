@@ -139,7 +139,7 @@ p {
 
 @keyframes glow-cold {
     from {
-        text-shadow: 
+        text-shadow:  
         0 0 calc(1px * var(--scaleStart)) #f9f9f9, 
         0 0 calc(2px * var(--scaleStart)) #b2e0e3, 
         0 0 calc(3px * var(--scaleStart)) #93d5da, 
